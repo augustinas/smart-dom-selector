@@ -1,6 +1,7 @@
 var $ = function (selector) {
   var elements;
 
+  // Splits the string on "." and "#" characters and keeps them
   selectorComponents = selector.split(/(?=[.#])/);
 
   elements = findElements(selectorComponents.shift());
@@ -12,6 +13,8 @@ var $ = function (selector) {
   return elements;
 };
 
+// Finds element(s) in the DOM based on the query string
+// Returns Array of matches
 var findElements = function (query) {
   var domElements;
   if (query[0] === ".") {
@@ -29,6 +32,8 @@ var findElements = function (query) {
   return [].slice.call(domElements);
 };
 
+// Filters elements with matching selectors
+// Returns Array of matches
 var filterElements = function (elementsArray, selector) {
   var filteredArray;
   if (selector[0] === ".") {
